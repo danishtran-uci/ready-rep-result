@@ -15,22 +15,23 @@ function HomePage() {
   return (
     <div
       style={{
-      height: '80vh',
-      width: '99vw',
-      background: '#FFFCF7',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
+        height: '80vh',
+        width: '99vw',
+        background: '#FFFCF7',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <div 
         style={{
-            height: '80%',
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
+          height: '80%',
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <span 
           style={{
             height: '100%',
