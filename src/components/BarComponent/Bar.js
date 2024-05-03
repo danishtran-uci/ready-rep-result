@@ -13,7 +13,7 @@ function Bar() {
             <div style={{width: '100vw', marginLeft: '-1vw', marginTop: '-1.5vh'}}>
                 <div 
                     style={{
-                        height: "15vh", 
+                        height: "18vh", 
                         backgroundColor: "#022F40", 
                         alignItems: 'center', 
                         display:'flex', 

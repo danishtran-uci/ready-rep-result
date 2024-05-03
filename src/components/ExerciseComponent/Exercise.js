@@ -32,55 +32,49 @@ function Exercise() {
             <div>
                 Bench Press
             </div>
-            <div>Instruction</div>
           </div>
 
           <div style={{padding:'1vw', width: '100%', height: '80%', textAlign: 'center', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
-            <div>
-                Set 1: <input type="number" style={inputStyle}></input>lbs: <input type="number" style={inputStyle}></input> Rep 
-            </div>
-            <div>
-                Set 2: <input type="number" style={inputStyle}></input>lbs: <input type="number" style={inputStyle}></input> Rep 
-            </div>
-            <div>
-                Set 3: <input type="number" style={inputStyle}></input>lbs: <input type="number" style={inputStyle}></input> Rep 
-            </div>
+            <iframe width="90%" height="90%" src="https://www.youtube.com/embed/-J4P-XOEtFY?si=tGVyWprfhzygOgfY"></iframe>
           </div>
-            
-            <div>
-                <button style={buttonStyle}>+ Add Set</button>
-            </div>
-
-            <div>
-                <button style={buttonStyle}>Finish Exercise</button>
-            </div>
-
         </div>
         
         <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
           <div style={{height: '10%', fontSize: '4vh', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
-            <div>
-                Current Workout
+            <div style={{textAlign: 'center'}}>
+                Instructions
             </div>
           </div>
 
-          <div style={{padding:'1vw', width: '100%', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center'}}>
-            Shoulder Press
-            <div>
-                Set 1 - (20lb): 8 rep 
-            </div>
-            <div>
-                Set 2 - (20lb): 8 rep 
-            </div>
-            <div>
-                Set 3 - (20lb): 8 rep 
-            </div>
-
-          </div>
+          <div style={{width: '100%', height: '80%', fontSize: '2vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center'}}>
             
-            <div>
-                <button style={buttonStyle}>Clear</button>
-            </div>
+            <ol>
+                <li>
+                    Lay on your back onto a flat bench. Put feet firmly on the ground.
+                </li>
+
+                <li>
+                    Grip barbell with hands at around shoulder width.
+                </li>
+
+                <li>
+                    Slowly lift up the bar off the rack and bring it slightly above the chest. 
+                </li>
+
+                <li>
+                    Lower the bar to the chest until your elbows are slightly below the bench.
+                </li>
+
+                <li>
+                    Push the bar back up to a neutral position above your chest. 
+                </li>
+
+                <li>
+                    Repeat until failure.
+                </li>
+            </ol>
+
+          </div>
 
             </div>
         </div>
