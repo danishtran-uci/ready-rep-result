@@ -96,7 +96,6 @@ function WeightPage() {
               style={inputStyle}
               value={morningWeight}
               onChange={(event) => setMorningWeight(event.target.value)}
-
             />
             lb
           </div>
