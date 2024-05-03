@@ -1,16 +1,17 @@
 import React from 'react';
 
+const buttonStyle = {
+  borderRadius: '40px',
+  height: '10%',
+  width: '40%',
+  margin: '1vh',
+  fontFamily: 'Anonymous Pro',
+  fontSize: '1vw',
+  background: '#ADADAD',
+  border: 'none',
+}
+
 function HomePage() {
-  const buttonStyle = {
-    borderRadius: '40px',
-    height: '10%',
-    width: '40%',
-    margin: '1vh',
-    fontFamily: 'Anonymous Pro',
-    fontSize: '1vw',
-    background: '#ADADAD',
-    border: 'none',
-  }
 
   return (
     <div
