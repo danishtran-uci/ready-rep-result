@@ -1,4 +1,5 @@
 import React from 'react';
+import Bar from '../BarComponent/Bar';
 
 const buttonStyle = {
   borderRadius: '40px',
@@ -29,153 +30,156 @@ const workoutRowStyle = {
 }
 
 const workoutSectionStyle = {
-  width: '33%', 
+  width: '33%',
   display: 'flex',
   justifyContent: 'center',
   borderStyle: 'solid',
 }
 
 const workoutContentStyle = {
-  flexDirection: 'column', 
-  width: '100%', 
-  display: 'flex', 
+  flexDirection: 'column',
+  width: '100%',
+  display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-evenly',
 }
 
 function DiscoverPage() {
   return (
-    <div
-      style={{
-      height: '80vh',
-      width: '99vw',
-      background: '#FFFCF7',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
-      <div 
+    <div>
+      <Bar />
+      <div
         style={{
-          height: '80%',
-          width: '100%',
+          height: '80vh',
+          width: '99vw',
+          background: '#FFFCF7',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
-        <span 
+        }}>
+        <div
           style={{
-            ...backgroundStyle,
-            width: '80%'
+            height: '80%',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          <p 
+          <span
             style={{
-              fontWeight: 'bold',
-              fontSize: '2vw',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
+              ...backgroundStyle,
+              width: '80%'
             }}
           >
-            Discover
-          </p>
+            <p
+              style={{
+                fontWeight: 'bold',
+                fontSize: '2vw',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              Discover
+            </p>
 
-          <div style={workoutRowStyle}>
-            <div style={workoutSectionStyle}>
-              <div style={workoutContentStyle}>
-                <div style={{fontSize: '1.5vw'}}>Chest</div>
-                <button style={buttonStyle}>
-                  Bench Press
-                </button>
-                <button style={buttonStyle}>
-                  Incline Press
-                </button>
-                <button style={buttonStyle}>
-                  Cable Crossover
-                </button>
+            <div style={workoutRowStyle}>
+              <div style={workoutSectionStyle}>
+                <div style={workoutContentStyle}>
+                  <div style={{ fontSize: '1.5vw' }}>Chest</div>
+                  <button style={buttonStyle}>
+                    Bench Press
+                  </button>
+                  <button style={buttonStyle}>
+                    Incline Press
+                  </button>
+                  <button style={buttonStyle}>
+                    Cable Crossover
+                  </button>
+                </div>
+              </div>
+              <div style={workoutSectionStyle}>
+                <div style={workoutContentStyle}>
+                  <div style={{ fontSize: '1.5vw' }}>Back</div>
+                  <button style={buttonStyle}>
+                    Deadlift
+                  </button>
+                  <button style={buttonStyle}>
+                    Dumbbell Rows
+                  </button>
+                  <button style={buttonStyle}>
+                    Lat Pulldown
+                  </button>
+                </div>
+              </div>
+              <div style={workoutSectionStyle}>
+                <div style={workoutContentStyle}>
+                  <div style={{ fontSize: '1.5vw' }}>Arms</div>
+                  <button style={buttonStyle}>
+                    Bicep Curls
+                  </button>
+                  <button style={buttonStyle}>
+                    Cable Tricep Pushdown
+                  </button>
+                  <button style={buttonStyle}>
+                    Skull Crushers
+                  </button>
+                </div>
               </div>
             </div>
-            <div style={workoutSectionStyle}>
-              <div style={workoutContentStyle}>
-                <div style={{fontSize: '1.5vw'}}>Back</div>
-                <button style={buttonStyle}>
-                  Deadlift
-                </button>
-                <button style={buttonStyle}>
-                  Dumbbell Rows
-                </button>
-                <button style={buttonStyle}>
-                  Lat Pulldown
-                </button>
-              </div>
-            </div>
-            <div style={workoutSectionStyle}>
-              <div style={workoutContentStyle}>
-                <div style={{fontSize: '1.5vw'}}>Arms</div>
-                <button style={buttonStyle}>
-                  Bicep Curls
-                </button>
-                <button style={buttonStyle}>
-                  Cable Tricep Pushdown
-                </button>
-                <button style={buttonStyle}>
-                  Skull Crushers
-                </button>
-              </div>
-            </div>
-          </div>
 
-          <div
-            style={{
-              ...workoutRowStyle,
-              marginTop: '0vh',
-            }}
-          >
-            <div style={workoutSectionStyle}>
-              <div style={workoutContentStyle}>
-                <div style={{fontSize: '1.5vw'}}>Legs</div>
-                <button style={buttonStyle}>
-                  Squats
-                </button>
-                <button style={buttonStyle}>
-                  Leg Extension                
-                </button>
-                <button style={buttonStyle}>
-                  Hamstring Curls
-                </button>
+            <div
+              style={{
+                ...workoutRowStyle,
+                marginTop: '0vh',
+              }}
+            >
+              <div style={workoutSectionStyle}>
+                <div style={workoutContentStyle}>
+                  <div style={{ fontSize: '1.5vw' }}>Legs</div>
+                  <button style={buttonStyle}>
+                    Squats
+                  </button>
+                  <button style={buttonStyle}>
+                    Leg Extension
+                  </button>
+                  <button style={buttonStyle}>
+                    Hamstring Curls
+                  </button>
+                </div>
+              </div>
+              <div style={workoutSectionStyle}>
+                <div style={workoutContentStyle}>
+                  <div style={{ fontSize: '1.5vw' }}>Shoulder</div>
+                  <button style={buttonStyle}>
+                    Overhead Press
+                  </button>
+                  <button style={buttonStyle}>
+                    Side Lateral Raise
+                  </button>
+                  <button style={buttonStyle}>
+                    Front Raise
+                  </button>
+                </div>
+              </div>
+              <div style={workoutSectionStyle}>
+                <div style={workoutContentStyle}>
+                  <div style={{ fontSize: '1.5vw' }}>Core</div>
+                  <button style={buttonStyle}>
+                    Plank
+                  </button>
+                  <button style={buttonStyle}>
+                    Crunch
+                  </button>
+                  <button style={buttonStyle}>
+                    Side Plank
+                  </button>
+                </div>
               </div>
             </div>
-            <div style={workoutSectionStyle}>
-              <div style={workoutContentStyle}>
-                <div style={{fontSize: '1.5vw'}}>Shoulder</div>
-                <button style={buttonStyle}>
-                  Overhead Press
-                </button>
-                <button style={buttonStyle}>
-                  Side Lateral Raise
-                </button>
-                <button style={buttonStyle}>
-                  Front Raise
-                </button>
-              </div>
-            </div>
-            <div style={workoutSectionStyle}>
-              <div style={workoutContentStyle}>
-                <div style={{fontSize: '1.5vw'}}>Core</div>
-                <button style={buttonStyle}>
-                  Plank
-                </button>
-                <button style={buttonStyle}>
-                  Crunch
-                </button>
-                <button style={buttonStyle}>
-                  Side Plank
-                </button>
-              </div>
-            </div>
-          </div>
-        </span>
+          </span>
+        </div>
       </div>
     </div>
   );
