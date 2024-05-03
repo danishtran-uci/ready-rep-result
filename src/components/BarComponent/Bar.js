@@ -18,21 +18,24 @@ function Bar() {
                         <p>----------------</p>
                         <p>----------------</p>
                     </button>
-
                 </div>
-
             </div>
-
-            <div style={{width: '25vh', float: 'right', backgroundColor: '#FFF8EB', boxShadow: '0px 8px 12px 0px rgba(0,0,0,0.2)'}}>
-                {dropDownToggle &&  
+            
+            <div style={{display: 'block', position:'absolute', zIndex: '1', right:'0'}}>
+                <div style={{width: '25vh', backgroundColor: '#FFF8EB', boxShadow: '0px 8px 12px 0px rgba(0,0,0,0.2)', textAlign: 'left'}}>
+                    {dropDownToggle &&  
                         <div style={{fontSize: '3vw'}}>
-                            <div style={{padding: '10px'}}>Discover</div>
-                            <div style={{padding: '10px'}}>Workout Tracker</div>
-                            <div style={{padding: '10px'}}>Calorie Tracker</div>
-                            <div style={{padding: '10px'}}>Weight Tracker</div>
+                            <div style={{padding: '10px'}}>Set/Rep Saver</div>
+                            <div style={{padding: '10px'}}>Macro Saver</div>
+                            <div style={{padding: '10px'}}>Weight Saver</div>
+                            <div style={{padding: '10px'}}>Discover Workouts</div>
+                            <div style={{padding: '10px'}}>Login</div>
+                            <div style={{padding: '10px'}}>Profile</div>
                         </div>
-                }
+                    }
+                </div>
             </div>
+
         </div>
     )
 }
