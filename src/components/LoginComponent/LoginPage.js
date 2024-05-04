@@ -14,27 +14,28 @@ const buttonStyle = {
 
 function LoginPage(){
 
-    const [username, getUser] = useState('');
-    const [password, getPass] = useState('');
-    const [info, getInfo] = useState([]);
+    const [loginData, setLoginData] = useState({
+        username: '',
+        password: ''
+      })
+    
+      function updateLogin(propertyName, value) {
+        setLoginData((prevQuery) => ({
+          ...prevQuery,
+          [propertyName]: value,
+        }));
+      }
 
     function log()
     {
-        if (username === '' || password === '')
+        if (loginData.username === '' || loginData.password === '')
             {
                 alert("Please fill out");
             }
         else
         {
-            // console.log("Username: " + username);
-            // console.log("Password: " + password);
-            const nlogin = {
-                user: username,
-                pass: password
-            };
-            getInfo([...info, nlogin]);
             alert("Success");
-            console.log(info);
+            console.log(loginData);
         }
     }
 
@@ -52,14 +53,14 @@ function LoginPage(){
                             <div style={{width: '90%'}}>
                                 <label style={{fontFamily: 'Anonymous Pro'}}>Username</label>
                                 <div style={{width: '100%'}}>
-                                    <input type='text' style={{width: '100%', height: '5vh', border: '3px solid black'}} value={username} onChange={(event) => getUser(event.target.value)}></input>
+                                    <input type='text' style={{width: '100%', height: '5vh', border: '3px solid black'}} onChange={(event) => updateLogin('username', event.target.value)}></input>
                                 </div>
                             </div>
 
                             <div style={{width: '90%'}}>
                                 <label style={{fontFamily: 'Anonymous Pro'}}>Password</label>
                                 <div style={{width: '100%'}}>
-                                    <input type='text' style={{width: '100%', height: '5vh', border: '3px solid black'}} value={password} onChange={(event) => getPass(event.target.value)}></input>
+                                    <input type='text' style={{width: '100%', height: '5vh', border: '3px solid black'}} onChange={(event) => updateLogin('password', event.target.value)}></input>
                                 </div>
                                 <div style={{textAlign: 'right', color: '#0009DA', fontFamily: 'Anonymous Pro'}}>Forgot Password?</div>
                             </div>
