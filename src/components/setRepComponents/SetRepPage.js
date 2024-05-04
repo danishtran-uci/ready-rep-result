@@ -56,7 +56,7 @@ function SetRepPage() {
 
       setWorkout([...workoutList, sets]);
 
-      // console.log(workoutList);
+      console.log(workoutList);
 
       setSets([]);
     }
@@ -68,9 +68,9 @@ function SetRepPage() {
       <div style={{width: "100%", height: "80vh", alignItems: 'center', display:'flex', flexDirection: 'row'}}>
         <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
           <div style={{height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
-            <div style={{float: "right"}}>
+            {/* <div style={{float: "right"}}>
                   <button style={buttonStyle}>Change Workout</button>
-            </div>
+            </div> */}
             <div>
                 Bench Press
             </div>
@@ -122,19 +122,21 @@ function SetRepPage() {
                 flexDirection: 'column',
               }}
             >
-              {workoutList.map((entry, index) => (
-                sets.map((e, idx) => (
-                  <div>
-                    {e.lbs}
-                  </div>
-                ))
+              {workoutList.map((sets, index) => (
+                <div key={index}>
+                  {sets.map((set, idx) => (
+                    <div key={idx}>
+                      Set {index+1} - ({set.lbs} lb): {set.reps} Rep
+                    </div>
+                  ))}
+                </div>
               ))}
             </p>
 
           </div>
             
             <div>
-                <button style={buttonStyle}>Clear</button>
+                <button style={buttonStyle} onClick={() => (setWorkout([]))}>Clear</button>
             </div>
 
             </div>
