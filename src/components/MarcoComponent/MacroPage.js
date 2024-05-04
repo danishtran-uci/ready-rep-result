@@ -1,6 +1,7 @@
 import {React, useState} from 'react';
+import Bar from '../BarComponent/Bar';
 
-function Meal() {
+function MacroPage() {
 
   const buttonStyle = {
     margin: '1vw',
@@ -24,8 +25,11 @@ function Meal() {
     border: 'none',
   }
 
+  const [mealHistory, setMealHistory] = useState([]);
+
   return (
     <div>
+      <Bar />
       <div style={{width: "100%", height: "80vh", alignItems: 'center', display:'flex', flexDirection: 'row'}}>
         <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
           <div style={{height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
@@ -34,7 +38,7 @@ function Meal() {
             </div>
           </div>
 
-          <div style={{padding:'1vw', width: '80%',alignItems: 'center', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
+          <div style={{padding:'1vw', width: '80%',alignItems: 'center', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
             <div>
                 Calories: <input type="number" style={inputStyle}></input>kcal
             </div>
@@ -90,4 +94,4 @@ function Meal() {
   );
 }
 
-export default Meal;
+export default MacroPage;
