@@ -94,9 +94,9 @@ function Bar() {
                 >Set/Rep Saver</button>
                 <button
                   style={dropdownitems}
-                // onClick={() => (
-                //   navigate("/Macro")
-                // )}
+                  onClick={() => (
+                    navigate("/Macro")
+                  )}
                 >Macro Saver</button>
                 <button
                   style={dropdownitems}
@@ -112,9 +112,9 @@ function Bar() {
                 >Discover Workouts</button>
                 <button
                   style={dropdownitems}
-                // onClick={() => (
-                //   navigate("/Login")
-                // )}
+                  onClick={() => (
+                    navigate("/Login")
+                  )}
                 >Login</button>
                 <button
                   style={dropdownitems}

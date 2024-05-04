@@ -67,9 +67,9 @@ function HomePage() {
             >Set/Rep Saver</button>
             <button
               style={buttonStyle}
-            // onClick={() => (
-            //   navigate("/Macro")
-            // )}
+              onClick={() => (
+                navigate("/Macro")
+              )}
             >Macro Saver</button>
             <button
               style={buttonStyle}
@@ -85,9 +85,9 @@ function HomePage() {
             >Discover Workouts</button>
             <button
               style={buttonStyle}
-            // onClick={() => (
-            //   navigate("/Login")
-            // )}
+              onClick={() => (
+                navigate("/Login")
+              )}
             >Login</button>
             <button
               style={buttonStyle}
