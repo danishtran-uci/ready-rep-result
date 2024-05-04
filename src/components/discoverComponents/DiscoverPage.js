@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Bar from '../BarComponent/Bar';
 
 const buttonStyle = {
@@ -45,6 +46,8 @@ const workoutContentStyle = {
 }
 
 function DiscoverPage() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Bar />
@@ -88,13 +91,28 @@ function DiscoverPage() {
               <div style={workoutSectionStyle}>
                 <div style={workoutContentStyle}>
                   <div style={{ fontSize: '1.5vw' }}>Chest</div>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Bench Press' })
+                    )}
+                  >
                     Bench Press
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Incline Press' })
+                    )}
+                  >
                     Incline Press
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Cable Crossover' })
+                    )}
+                  >
                     Cable Crossover
                   </button>
                 </div>
@@ -102,13 +120,28 @@ function DiscoverPage() {
               <div style={workoutSectionStyle}>
                 <div style={workoutContentStyle}>
                   <div style={{ fontSize: '1.5vw' }}>Back</div>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Deadlift' })
+                    )}
+                  >
                     Deadlift
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Dumbbell Rows' })
+                    )}
+                  >
                     Dumbbell Rows
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Lat Pulldown' })
+                    )}
+                  >
                     Lat Pulldown
                   </button>
                 </div>
@@ -116,13 +149,28 @@ function DiscoverPage() {
               <div style={workoutSectionStyle}>
                 <div style={workoutContentStyle}>
                   <div style={{ fontSize: '1.5vw' }}>Arms</div>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Bicep Curls' })
+                    )}
+                  >
                     Bicep Curls
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Cable Tricep Pushdown' })
+                    )}
+                  >
                     Cable Tricep Pushdown
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Skull Crushers' })
+                    )}
+                  >
                     Skull Crushers
                   </button>
                 </div>
@@ -138,13 +186,28 @@ function DiscoverPage() {
               <div style={workoutSectionStyle}>
                 <div style={workoutContentStyle}>
                   <div style={{ fontSize: '1.5vw' }}>Legs</div>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Squats' })
+                    )}
+                  >
                     Squats
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Leg Extension' })
+                    )}
+                  >
                     Leg Extension
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Hamstring Curls' })
+                    )}
+                  >
                     Hamstring Curls
                   </button>
                 </div>
@@ -152,13 +215,28 @@ function DiscoverPage() {
               <div style={workoutSectionStyle}>
                 <div style={workoutContentStyle}>
                   <div style={{ fontSize: '1.5vw' }}>Shoulder</div>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Overhead Press' })
+                    )}
+                  >
                     Overhead Press
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Side Lateral Raise' })
+                    )}
+                  >
                     Side Lateral Raise
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Front Raise' })
+                    )}
+                  >
                     Front Raise
                   </button>
                 </div>
@@ -166,13 +244,28 @@ function DiscoverPage() {
               <div style={workoutSectionStyle}>
                 <div style={workoutContentStyle}>
                   <div style={{ fontSize: '1.5vw' }}>Core</div>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Plank' })
+                    )}
+                  >
                     Plank
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Crunch' })
+                    )}
+                  >
                     Crunch
                   </button>
-                  <button style={buttonStyle}>
+                  <button
+                    style={buttonStyle}
+                    onClick={() => (
+                      navigate("/ExerciseInfo", { state: 'Side Plank' })
+                    )}
+                  >
                     Side Plank
                   </button>
                 </div>

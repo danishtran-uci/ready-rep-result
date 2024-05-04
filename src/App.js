@@ -5,6 +5,7 @@ import SetRepPage from './components/setRepComponents/SetRepPage';
 import WeightPage from './components/weightComponents/WeightPage';
 import DiscoverPage from './components/discoverComponents/DiscoverPage';
 import ProfilePage from './components/profileComponents/ProfilePage';
+import ExerciseInfoPage from './components/ExerciseInfoComponent/ExerciseInfoPage';
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
         <Route
           path="/Profile"
           element={<ProfilePage />}
+        />
+        <Route
+          path="/ExerciseInfo"
+          element={<ExerciseInfoPage />}
         />
       </Routes>
     </BrowserRouter>
