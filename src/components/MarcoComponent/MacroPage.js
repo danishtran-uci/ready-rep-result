@@ -27,29 +27,38 @@ function MacroPage() {
 
   const [mealHistory, setMealHistory] = useState([]);
   
-  const [meal, setMeal] = useState({
-    calories: '',
-    fat: '',
-    protein: '',
-    sugar: ''
-  });
-
-  function updateMeal(propertyName, val){
-    setMeal((prev) => ({
-      ...prev,
-      [propertyName]: val,
-    }));
-  }
+  const [calories, setCal] = useState('');
+  const [fat, setFat] = useState('');
+  const [protein, setProtein] = useState('');
+  const [sugar, setSugar] = useState('');
 
   function addMealToHistory()
   {
-    if (meal.calories === '' || meal.fat === '' || meal.protein === '' || meal.sugar === '')
+    if (calories === '' || fat === '' || protein === '' || sugar === '')
       {
         alert("Please Fill Out");
       }
+    else if (calories < 0 || fat < 0 || protein < 0 || sugar < 0)
+      {
+        alert("Invalid Inputs")
+      }
     else
     {
-      
+      const curMeal = {
+        calories: calories,
+        fat: fat,
+        protein: protein,
+        sugar: sugar
+      };
+
+      setMealHistory([...mealHistory, curMeal]);
+
+      setCal('');
+      setFat('');
+      setSugar('');
+      setProtein('');
+
+      console.log(mealHistory);
     }
   };
 
@@ -66,16 +75,16 @@ function MacroPage() {
 
           <div style={{padding:'1vw', width: '80%',alignItems: 'center', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
             <div>
-                Calories: <input type="number" style={inputStyle} onChange={(event) => updateMeal('calories', event.target.value)}></input>kcal
+                Calories: <input type="number" style={inputStyle} value={calories} onChange={(event) => setCal(event.target.value)}></input>kcal
             </div>
             <div>
-                Fat: <input type="number" style={inputStyle} onChange={(event) => updateMeal('fat', event.target.value)}></input>g
+                Fat: <input type="number" style={inputStyle} value={fat} onChange={(event) => setFat(event.target.value)}></input>g
             </div>
             <div>
-                Protein: <input type="number" style={inputStyle} onChange={(event) => updateMeal('protein', event.target.value)}></input>g
+                Protein: <input type="number" style={inputStyle} value={protein} onChange={(event) => setProtein(event.target.value)}></input>g
             </div>
             <div>
-                Sugar: <input type="number" style={inputStyle} onChange={(event) => updateMeal('sugar', event.target.value)}></input>g
+                Sugar: <input type="number" style={inputStyle} value={sugar} onChange={(event) => setSugar(event.target.value)}></input>g
             </div>
 
           </div>
@@ -93,21 +102,25 @@ function MacroPage() {
             </div>
           </div>
 
-          <div style={{padding:'1vw', width: '80%', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center'}}>
-            <div>Meal #1</div>
-            <div>
-                Calories: 156 kcal
-            </div>
-            <div>
-                Fat: 9 g
-            </div>
-            <div>
-                Protein: 6 g
-            </div>
-            <div>
-                Sugar: .6 g
-            </div>
-
+          <div style={{height: '80%'}}>
+            <p
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  flexDirection: 'column',
+                }}
+              >
+                {mealHistory.map((entry, index) => (
+                  <div key={index}>
+                    <p>Meal# {index + 1}</p>
+                    <p>Calories: {entry.calories} kcal</p>
+                    <p>Fat: {entry.fat} g</p>
+                    <p>Protein: {entry.protein} g</p>
+                    <p>Sugar: {entry.sugar} g</p>
+                  </div>
+                ))}
+              </p>
           </div>
             
             <div>
