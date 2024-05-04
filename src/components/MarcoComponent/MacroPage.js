@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import Bar from '../BarComponent/Bar';
 
 function MacroPage() {
@@ -26,109 +26,116 @@ function MacroPage() {
   }
 
   const [mealHistory, setMealHistory] = useState([]);
-  
-  const [calories, setCal] = useState('');
-  const [fat, setFat] = useState('');
-  const [protein, setProtein] = useState('');
-  const [sugar, setSugar] = useState('');
 
-  function addMealToHistory()
-  {
-    if (calories === '' || fat === '' || protein === '' || sugar === '')
-      {
-        alert("Please Fill Out");
-      }
-    else if (calories < 0 || fat < 0 || protein < 0 || sugar < 0)
-      {
-        alert("Invalid Inputs")
-      }
-    else
-    {
-      const curMeal = {
-        calories: calories,
-        fat: fat,
-        protein: protein,
-        sugar: sugar
-      };
+  const [mealData, setMealData] = useState({
+    calories: 0,
+    fat: 0,
+    protein: 0,
+    sugar: 0,
+  })
 
-      setMealHistory([...mealHistory, curMeal]);
+  function updateMealData(propertyName, value) {
+    setMealData((prevQuery) => ({
+      ...prevQuery,
+      [propertyName]: value,
+    }));
+  }
 
-      setCal('');
-      setFat('');
-      setSugar('');
-      setProtein('');
+  function addMealToHistory() {
+    if (mealData.calories === 0 || mealData.fat === 0 || mealData.protein === 0 || mealData.sugar === 0) {
+      alert("Please Fill Out");
+    }
+    else if (mealData.calories < 0 || mealData.fat < 0 || mealData.protein < 0 || mealData.sugar < 0) {
+      alert("Invalid Inputs")
+    }
+    else {
+      setMealHistory([...mealHistory, mealData]);
 
-      console.log(mealHistory);
+      updateMealData('calories', 0);
+      updateMealData('fat', 0);
+      updateMealData('protein', 0);
+      updateMealData('sugar', 0);
     }
   };
 
   return (
     <div>
       <Bar />
-      <div style={{width: "100%", height: "80vh", alignItems: 'center', display:'flex', flexDirection: 'row'}}>
-        <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
-          <div style={{height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
+      <div style={{ width: "100%", height: "80vh", alignItems: 'center', display: 'flex', flexDirection: 'row' }}>
+        <div style={{ width: "50%", height: '70%', backgroundColor: '#FFF8EB', border: "10px solid white", display: 'flex', flexDirection: 'column' }}>
+          <div style={{ height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw' }}>
             <div>
-                Current Meal
+              Current Meal
             </div>
           </div>
 
-          <div style={{padding:'1vw', width: '80%',alignItems: 'center', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
+          <div style={{ padding: '1vw', width: '80%', alignItems: 'center', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
             <div>
-                Calories: <input type="number" style={inputStyle} value={calories} onChange={(event) => setCal(event.target.value)}></input>kcal
+              Calories: <input type="number" style={inputStyle} value={mealData.calories} onChange={(event) => updateMealData('calories', event.target.value)}></input>kcal
             </div>
             <div>
-                Fat: <input type="number" style={inputStyle} value={fat} onChange={(event) => setFat(event.target.value)}></input>g
+              Fat: <input type="number" style={inputStyle} value={mealData.fat} onChange={(event) => updateMealData('fat', event.target.value)}></input>g
             </div>
             <div>
-                Protein: <input type="number" style={inputStyle} value={protein} onChange={(event) => setProtein(event.target.value)}></input>g
+              Protein: <input type="number" style={inputStyle} value={mealData.protein} onChange={(event) => updateMealData('protein', event.target.value)}></input>g
             </div>
             <div>
-                Sugar: <input type="number" style={inputStyle} value={sugar} onChange={(event) => setSugar(event.target.value)}></input>g
+              Sugar: <input type="number" style={inputStyle} value={mealData.sugar} onChange={(event) => updateMealData('sugar', event.target.value)}></input>g
             </div>
 
           </div>
-            
-            <div>
-                <button style={buttonStyle} onClick={addMealToHistory}>Finish Meal</button>
-            </div>
+
+          <div>
+            <button style={buttonStyle} onClick={addMealToHistory}>Finish Meal</button>
+          </div>
 
         </div>
-        
-        <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
-          <div style={{height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
+
+        <div style={{ width: "50%", height: '70%', backgroundColor: '#FFF8EB', border: "10px solid white", display: 'flex', flexDirection: 'column' }}>
+          <div style={{ height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw' }}>
             <div>
-                Meal History
+              Meal History
             </div>
           </div>
 
-          <div style={{height: '80%'}}>
+          <div style={{ height: '80%' }}>
             <p
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  flexDirection: 'column',
-                }}
-              >
-                {mealHistory.map((entry, index) => (
-                  <div key={index}>
-                    <p>Meal# {index + 1}</p>
-                    <p>Calories: {entry.calories} kcal</p>
-                    <p>Fat: {entry.fat} g</p>
-                    <p>Protein: {entry.protein} g</p>
-                    <p>Sugar: {entry.sugar} g</p>
-                  </div>
-                ))}
-              </p>
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              {mealHistory.map((meal, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    fontFamily: 'Anonymous Pro',
+                    fontSize: '1.25vw'
+                  }}
+                >
+                  <strong>Meal# {index + 1}</strong>
+                  <span>Calories: {meal.calories} kcal</span>
+                  <span>Fat: {meal.fat} g</span>
+                  <span>Protein: {meal.protein} g</span>
+                  <span>Sugar: {meal.sugar} g</span>
+                </div>
+              ))}
+            </p>
           </div>
-            
-            <div>
-                <button style={buttonStyle}>Clear</button>
-            </div>
 
-            </div>
+          <div>
+            <button
+              style={buttonStyle}
+              onClick={() => setMealHistory([])}
+            >Clear</button>
+          </div>
+
         </div>
+      </div>
     </div>
   );
 }
