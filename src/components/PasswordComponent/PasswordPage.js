@@ -3,7 +3,7 @@ import Bar from '../BarComponent/Bar';
 
 const buttonStyle = {
     borderRadius: '40px',
-    height: '20%',
+    height: '30%',
     width: '50%',
     margin: '1vh',
     fontFamily: 'Anonymous Pro',
@@ -37,7 +37,7 @@ function PasswordPage(){
     return (
         <div>
             <Bar />
-            <div style={{height: '100vh', width: '99vw', background: '#FFFCF7', display: 'flex', justifyContent: 'center',   alignItems: 'center',}}>
+            <div style={{height: '80vh', width: '99vw', background: '#FFFCF7', display: 'flex', justifyContent: 'center',   alignItems: 'center',}}>
                 <div style={{width: '100%', height:'80%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                     <div style={{backgroundColor: '#FFF8EB', height: '100%', width: '30%'}}>
                         <div style={{fontSize:'3vw', textAlign: 'center', height: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
