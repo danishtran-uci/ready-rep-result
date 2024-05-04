@@ -8,6 +8,8 @@ import ProfilePage from './components/profileComponents/ProfilePage';
 import ExerciseInfoPage from './components/ExerciseInfoComponent/ExerciseInfoPage';
 import MacroPage from './components/MarcoComponent/MacroPage';
 import LoginPage from './components/LoginComponent/LoginPage';
+import SignUpPage from './components/signupComponent/SignupPage';
+import PasswordPage from './components/PasswordComponent/PasswordPage';
 
 function App() {
   return (
@@ -44,6 +46,18 @@ function App() {
         <Route
           path="/ExerciseInfo"
           element={<ExerciseInfoPage />}
+        />
+        <Route
+          path="/SignUp"
+          element={<SignUpPage />}
+        />
+        <Route
+          path="/ExerciseInfo"
+          element={<ExerciseInfoPage />}
+        />
+        <Route
+          path="/ChangePassword"
+          element={<PasswordPage />}
         />
       </Routes>
     </BrowserRouter>
