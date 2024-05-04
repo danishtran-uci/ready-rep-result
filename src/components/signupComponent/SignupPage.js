@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Bar from '../BarComponent/Bar';
 
 const buttonStyle = {
@@ -27,6 +27,23 @@ const inputStyle = {
 }
 
 function SignUpPage() {
+  const [signupData, setSignupData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  })
+
+  function updateSignupData(propertyName, value) {
+    setSignupData((prevQuery) => ({
+      ...prevQuery,
+      [propertyName]: value,
+    }));
+  }
+
+  function handleUpdateProfile() {
+    console.log(signupData)
+  }
+
   return (
     <div>
       <Bar />
@@ -82,21 +99,33 @@ function SignUpPage() {
             >
               <span>
                 <span style={textStyle}>Username</span>
-                <input style={inputStyle} />
+                <input
+                  style={inputStyle}
+                  onChange={(event) => updateSignupData('username', event.target.value)}
+                />
               </span>
 
               <span>
                 <span style={textStyle}>Email</span>
-                <input style={inputStyle} />
+                <input
+                  style={inputStyle}
+                  onChange={(event) => updateSignupData('email', event.target.value)}
+                />
               </span>
 
               <span>
                 <span style={textStyle}>Password</span>
-                <input style={inputStyle} />
+                <input
+                  style={inputStyle}
+                  onChange={(event) => updateSignupData('password', event.target.value)}
+                />
               </span>
             </div>
 
-            <button style={buttonStyle}>Confirm</button>
+            <button
+              style={buttonStyle}
+              onClick={handleUpdateProfile}
+            >Confirm</button>
           </span>
         </div>
       </div>
