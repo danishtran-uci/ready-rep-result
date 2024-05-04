@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Bar from '../BarComponent/Bar';
 
 const buttonStyle = {
   borderRadius: '40px',
@@ -12,55 +14,89 @@ const buttonStyle = {
 }
 
 function HomePage() {
+  const navigate = useNavigate();
 
   return (
-    <div
-      style={{
-        height: '80vh',
-        width: '99vw',
-        background: '#FFFCF7',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div 
+    <div>
+      <Bar />
+      <div
         style={{
-          height: '80%',
-          width: '100%',
+          height: '80vh',
+          width: '99vw',
+          background: '#FFFCF7',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        <span 
+        <div
           style={{
-            height: '100%',
-            width: '30%',
-            background: '#FFF8EB',
-            display: 'flex', 
-            justifyContent: 'center', 
+            height: '80%',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
             alignItems: 'center',
-            flexDirection: 'column',
-            fontFamily: 'Anonymous Pro',
           }}
         >
-          <p 
+          <span
             style={{
-              fontWeight: 'bold',
-              fontSize: '3vw',
+              height: '100%',
+              width: '30%',
+              background: '#FFF8EB',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+              fontFamily: 'Anonymous Pro',
             }}
           >
-            Welcome
-          </p>
+            <p
+              style={{
+                fontWeight: 'bold',
+                fontSize: '3vw',
+              }}
+            >
+              Welcome
+            </p>
 
-          <button style={buttonStyle}>Set/Rep Saver</button>
-          <button style={buttonStyle}>Macro Saver</button>
-          <button style={buttonStyle}>Weight Saver</button>
-          <button style={buttonStyle}>Discover Workouts</button>
-          <button style={buttonStyle}>Login</button>
-          <button style={buttonStyle}>Profile</button>
-        </span>
+            <button
+              style={buttonStyle}
+              onClick={() => (
+                navigate("/SetRep")
+              )}
+            >Set/Rep Saver</button>
+            <button
+              style={buttonStyle}
+            // onClick={() => (
+            //   navigate("/Macro")
+            // )}
+            >Macro Saver</button>
+            <button
+              style={buttonStyle}
+              onClick={() => (
+                navigate("/Weight")
+              )}
+            >Weight Saver</button>
+            <button
+              style={buttonStyle}
+              onClick={() => (
+                navigate("/Discover")
+              )}
+            >Discover Workouts</button>
+            <button
+              style={buttonStyle}
+            // onClick={() => (
+            //   navigate("/Login")
+            // )}
+            >Login</button>
+            <button
+              style={buttonStyle}
+              onClick={() => (
+                navigate("/Profile")
+              )}
+            >Profile</button>
+          </span>
+        </div>
       </div>
     </div>
   );
