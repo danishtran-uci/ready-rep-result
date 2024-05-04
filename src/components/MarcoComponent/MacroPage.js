@@ -26,6 +26,28 @@ function MacroPage() {
   }
 
   const [mealHistory, setMealHistory] = useState([]);
+  
+  const [meal, setMeal] = useState({
+    calories: '',
+    fat: '',
+    protein: '',
+    sugar: ''
+  });
+
+  function updateMeal(propertyName, val){
+    setMeal((prev) => ({
+      ...prev,
+      [propertyName]: val,
+    }));
+  }
+
+  function addMealToHistory()
+  {
+    if (meal.calories === '' || meal.fat === '' || meal.protein === '' || meal.sugar === '')
+      {
+        alert("Please Fill Out");
+      }
+  };
 
   return (
     <div>
@@ -40,22 +62,22 @@ function MacroPage() {
 
           <div style={{padding:'1vw', width: '80%',alignItems: 'center', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
             <div>
-                Calories: <input type="number" style={inputStyle}></input>kcal
+                Calories: <input type="number" style={inputStyle} onChange={(event) => updateMeal('calories', event.target.value)}></input>kcal
             </div>
             <div>
-                Fat: <input type="number" style={inputStyle}></input>g
+                Fat: <input type="number" style={inputStyle} onChange={(event) => updateMeal('fat', event.target.value)}></input>g
             </div>
             <div>
-                Protein: <input type="number" style={inputStyle}></input>g
+                Protein: <input type="number" style={inputStyle} onChange={(event) => updateMeal('protein', event.target.value)}></input>g
             </div>
             <div>
-                Sugar: <input type="number" style={inputStyle}></input>g
+                Sugar: <input type="number" style={inputStyle} onChange={(event) => updateMeal('sugar', event.target.value)}></input>g
             </div>
 
           </div>
             
             <div>
-                <button style={buttonStyle}>Finish Exercise</button>
+                <button style={buttonStyle} onClick={addMealToHistory}>Finish Meal</button>
             </div>
 
         </div>
