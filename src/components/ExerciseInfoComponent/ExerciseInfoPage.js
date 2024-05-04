@@ -1,6 +1,7 @@
 import {React, useState} from 'react';
+import Bar from '../BarComponent/Bar';
 
-function Exercise() {
+function ExerciseInfoPage() {
 
   const buttonStyle = {
     margin: '1vw',
@@ -26,8 +27,9 @@ function Exercise() {
 
   return (
     <div>
+      <Bar />
       <div style={{width: "100%", height: "80vh", alignItems: 'center', display:'flex', flexDirection: 'row'}}>
-        <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
+        <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div style={{height: '10%', textAlign:'center', fontSize: '5vh', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
             <div>
                 Bench Press
@@ -39,16 +41,16 @@ function Exercise() {
           </div>
         </div>
         
-        <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
+        <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div style={{height: '10%', fontSize: '4vh', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
             <div style={{textAlign: 'center'}}>
                 Instructions
             </div>
           </div>
 
-          <div style={{width: '100%', height: '80%', fontSize: '2vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center'}}>
+          <div style={{width: '100%', height: '80%', fontSize: '3vh', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center'}}>
             
-            <ol>
+            <ol style={{margin: '1vw 1vh'}}>
                 <li>
                     Lay on your back onto a flat bench. Put feet firmly on the ground.
                 </li>
@@ -82,4 +84,4 @@ function Exercise() {
   );
 }
 
-export default Exercise;
+export default ExerciseInfoPage;
