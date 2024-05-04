@@ -5,7 +5,7 @@ function SetRepPage() {
   const buttonStyle = {
     margin: '1vw',
     borderRadius: '40px',
-    fontSize: '3vw',
+    fontSize: '2vw',
     fontFamily: 'Anonymous Pro',
     background: '#ADADAD',
     border: 'none',
@@ -24,35 +24,84 @@ function SetRepPage() {
     border: 'none',
   }
 
+  const [workoutList, setWorkout] = useState([]);
+
+  const [sets, setSets] = useState([]);
+
+  function addSet(){
+    const nSet = {
+      lbs: '',
+      reps: ''
+    };
+    setSets([...sets, nSet])
+  };
+
+  function finish(){
+
+    var canAdd = true;
+
+    sets.map((entry) => {
+      if (entry.lbs === '' || entry.reps === '')
+        {
+          canAdd = false;
+        }
+    });
+
+    if (!canAdd)
+      {
+        alert("Please Fill Out");
+      }
+    else
+    {
+
+      setWorkout([...workoutList, sets]);
+
+      // console.log(workoutList);
+
+      setSets([]);
+    }
+  };
+
   return (
     <div>
+      {/* <Bar /> */}
       <div style={{width: "100%", height: "80vh", alignItems: 'center', display:'flex', flexDirection: 'row'}}>
         <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
-          <div style={{height: '10%', fontSize: '4vh', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
+          <div style={{height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
+            <div style={{float: "right"}}>
+                  <button style={buttonStyle}>Change Workout</button>
+            </div>
             <div>
                 Bench Press
             </div>
           </div>
 
-          <div style={{padding:'1vw', width: '100%', height: '80%', textAlign: 'center', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
-            <div>
-                Set 1: <input type="number" style={inputStyle}></input>lbs: <input type="number" style={inputStyle}></input> Rep 
-            </div>
-            <div>
-                Set 2: <input type="number" style={inputStyle}></input>lbs: <input type="number" style={inputStyle}></input> Rep 
-            </div>
-            <div>
-                Set 3: <input type="number" style={inputStyle}></input>lbs: <input type="number" style={inputStyle}></input> Rep 
-            </div>
+          <div style={{width: '80%', height: '60%', fontSize: '2vw', justifyContent: 'center', fontFamily: 'Anonymous Pro', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
+            <p
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              {sets.map((entry, index) => (
+                <div key={index}>
+                  Set {index + 1} <input type="number" style={inputStyle} onChange={(event) => sets[index].lbs = event.target.value}></input>lbs: <input type="number" style={inputStyle} onChange={(event) => sets[index].reps = event.target.value}></input> Rep 
+                </div>
+              ))}
+            </p>
           </div>
-            
+          
+          <div style={{display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
             <div>
-                <button style={buttonStyle}>+ Add Set</button>
+                <button style={buttonStyle} onClick={addSet}>+ Add Set</button>
             </div>
 
             <div>
-                <button style={buttonStyle}>Finish Exercise</button>
+                <button style={buttonStyle} onClick={finish}>Finish Exercise</button>
             </div>
+          </div>
 
         </div>
         
@@ -64,16 +113,23 @@ function SetRepPage() {
           </div>
 
           <div style={{padding:'1vw', width: '100%', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center'}}>
-            Shoulder Press
-            <div>
-                Set 1 - (20lb): 8 rep 
-            </div>
-            <div>
-                Set 2 - (20lb): 8 rep 
-            </div>
-            <div>
-                Set 3 - (20lb): 8 rep 
-            </div>
+            Bench Press
+            <p
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              {workoutList.map((entry, index) => (
+                sets.map((e, idx) => (
+                  <div>
+                    {e.lbs}
+                  </div>
+                ))
+              ))}
+            </p>
 
           </div>
             
