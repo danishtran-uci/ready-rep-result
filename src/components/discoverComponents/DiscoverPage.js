@@ -27,14 +27,12 @@ const workoutRowStyle = {
   marginRight: '1vw',
   display: 'flex',
   justifyContent: 'space-evenly',
-  borderStyle: 'solid',
 }
 
 const workoutSectionStyle = {
   width: '33%',
   display: 'flex',
   justifyContent: 'center',
-  borderStyle: 'solid',
 }
 
 const workoutContentStyle = {

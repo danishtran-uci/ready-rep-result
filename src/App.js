@@ -6,6 +6,8 @@ import WeightPage from './components/weightComponents/WeightPage';
 import DiscoverPage from './components/discoverComponents/DiscoverPage';
 import ProfilePage from './components/profileComponents/ProfilePage';
 import ExerciseInfoPage from './components/ExerciseInfoComponent/ExerciseInfoPage';
+import MacroPage from './components/MarcoComponent/MacroPage';
+import LoginPage from './components/LoginComponent/LoginPage';
 
 function App() {
   return (
@@ -19,10 +21,10 @@ function App() {
           path="/SetRep"
           element={<SetRepPage />}
         />
-        {/* <Route
+        <Route
           path="/Macro"
           element={<MacroPage />}
-        /> */}
+        />
         <Route
           path="/Weight"
           element={<WeightPage />}
@@ -31,10 +33,10 @@ function App() {
           path="/Discover"
           element={<DiscoverPage />}
         />
-        {/* <Route
+        <Route
           path="/Login"
           element={<LoginPage />}
-        /> */}
+        />
         <Route
           path="/Profile"
           element={<ProfilePage />}

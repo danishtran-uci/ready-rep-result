@@ -1,4 +1,5 @@
-import {React, useState} from 'react';
+import { React, useState } from 'react';
+import Bar from '../BarComponent/Bar';
 
 function SetRepPage() {
 
@@ -28,7 +29,7 @@ function SetRepPage() {
 
   const [sets, setSets] = useState([]);
 
-  function addSet(){
+  function addSet() {
     const nSet = {
       lbs: '',
       reps: ''
@@ -36,23 +37,20 @@ function SetRepPage() {
     setSets([...sets, nSet])
   };
 
-  function finish(){
+  function finish() {
 
     var canAdd = true;
 
     sets.map((entry) => {
-      if (entry.lbs === '' || entry.reps === '')
-        {
-          canAdd = false;
-        }
+      if (entry.lbs === '' || entry.reps === '') {
+        canAdd = false;
+      }
     });
 
-    if (!canAdd)
-      {
-        alert("Please Fill Out");
-      }
-    else
-    {
+    if (!canAdd) {
+      alert("Please Fill Out");
+    }
+    else {
 
       setWorkout([...workoutList, sets]);
 
@@ -64,19 +62,19 @@ function SetRepPage() {
 
   return (
     <div>
-      {/* <Bar /> */}
-      <div style={{width: "100%", height: "80vh", alignItems: 'center', display:'flex', flexDirection: 'row'}}>
-        <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
-          <div style={{height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
+      <Bar />
+      <div style={{ width: "100%", height: "80vh", alignItems: 'center', display: 'flex', flexDirection: 'row' }}>
+        <div style={{ width: "50%", height: '70%', backgroundColor: '#FFF8EB', border: "10px solid white", display: 'flex', flexDirection: 'column' }}>
+          <div style={{ height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw' }}>
             {/* <div style={{float: "right"}}>
                   <button style={buttonStyle}>Change Workout</button>
             </div> */}
             <div>
-                Bench Press
+              Bench Press
             </div>
           </div>
 
-          <div style={{width: '80%', height: '60%', fontSize: '2vw', justifyContent: 'center', fontFamily: 'Anonymous Pro', display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
+          <div style={{ width: '80%', height: '60%', fontSize: '2vw', justifyContent: 'center', fontFamily: 'Anonymous Pro', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
             <p
               style={{
                 display: 'flex',
@@ -87,32 +85,32 @@ function SetRepPage() {
             >
               {sets.map((entry, index) => (
                 <div key={index}>
-                  Set {index + 1} <input type="number" style={inputStyle} onChange={(event) => sets[index].lbs = event.target.value}></input>lbs: <input type="number" style={inputStyle} onChange={(event) => sets[index].reps = event.target.value}></input> Rep 
+                  Set {index + 1} <input type="number" style={inputStyle} onChange={(event) => sets[index].lbs = event.target.value}></input>lbs: <input type="number" style={inputStyle} onChange={(event) => sets[index].reps = event.target.value}></input> Rep
                 </div>
               ))}
             </p>
           </div>
-          
-          <div style={{display:'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
+
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
             <div>
-                <button style={buttonStyle} onClick={addSet}>+ Add Set</button>
+              <button style={buttonStyle} onClick={addSet}>+ Add Set</button>
             </div>
 
             <div>
-                <button style={buttonStyle} onClick={finish}>Finish Exercise</button>
+              <button style={buttonStyle} onClick={finish}>Finish Exercise</button>
             </div>
           </div>
 
         </div>
-        
-        <div style={{width: "50%", height:'70%', backgroundColor: '#FFF8EB', border: "10px solid white", display:'flex', flexDirection: 'column'}}>
-          <div style={{height: '10%', fontSize: '4vh', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw'}}>
+
+        <div style={{ width: "50%", height: '70%', backgroundColor: '#FFF8EB', border: "10px solid white", display: 'flex', flexDirection: 'column' }}>
+          <div style={{ height: '10%', fontSize: '4vh', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw' }}>
             <div>
-                Current Workout
+              Current Workout
             </div>
           </div>
 
-          <div style={{padding:'1vw', width: '100%', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display:'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center'}}>
+          <div style={{ padding: '1vw', width: '100%', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center' }}>
             Bench Press
             <p
               style={{
@@ -126,7 +124,7 @@ function SetRepPage() {
                 <div key={index}>
                   {sets.map((set, idx) => (
                     <div key={idx}>
-                      Set {index+1} - ({set.lbs} lb): {set.reps} Rep
+                      Set {index + 1} - ({set.lbs} lb): {set.reps} Rep
                     </div>
                   ))}
                 </div>
@@ -134,13 +132,13 @@ function SetRepPage() {
             </p>
 
           </div>
-            
-            <div>
-                <button style={buttonStyle} onClick={() => (setWorkout([]))}>Clear</button>
-            </div>
 
-            </div>
+          <div>
+            <button style={buttonStyle} onClick={() => (setWorkout([]))}>Clear</button>
+          </div>
+
         </div>
+      </div>
     </div>
   );
 }
