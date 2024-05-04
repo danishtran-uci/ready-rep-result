@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Bar from '../BarComponent/Bar';
 
 const buttonStyle = {
   borderRadius: '40px',
@@ -53,110 +54,113 @@ function WeightPage() {
 
 
   return (
-    <div
-      style={{
-        height: '80vh',
-        width: '99vw',
-        background: '#FFFCF7',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
+    <div>
+      <Bar />
       <div
         style={{
-          height: '80%',
-          width: '100%',
+          height: '80vh',
+          width: '99vw',
+          background: '#FFFCF7',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
-        <span
-          style={backgroundStyle}
+        }}>
+        <div
+          style={{
+            height: '80%',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
-          <p
-            style={{
-              paddingLeft: '2vw',
-              fontWeight: 'bold',
-              fontSize: '2vw',
-            }}
+          <span
+            style={backgroundStyle}
           >
-            Today's Weight
-          </p>
-          <div
-            style={{
-              paddingLeft: '5vw',
-              paddingTop: '2.5vh',
-              fontSize: '1.5vw',
-            }}
+            <p
+              style={{
+                paddingLeft: '2vw',
+                fontWeight: 'bold',
+                fontSize: '2vw',
+              }}
+            >
+              Today's Weight
+            </p>
+            <div
+              style={{
+                paddingLeft: '5vw',
+                paddingTop: '2.5vh',
+                fontSize: '1.5vw',
+              }}
+            >
+              Morning:
+              <input
+                type="number"
+                style={inputStyle}
+                value={morningWeight}
+                onChange={(event) => setMorningWeight(event.target.value)}
+              />
+              lb
+            </div>
+            <div
+              style={{
+                paddingLeft: '5vw',
+                paddingTop: '8vh',
+                fontSize: '1.5vw',
+              }}
+            >
+              Evening:
+              <input
+                type="number"
+                style={inputStyle}
+                value={eveningWeight}
+                onChange={(event) => setEveningWeight(event.target.value)}
+              />
+              lb
+            </div>
+            <button
+              style={{
+                ...buttonStyle,
+                marginTop: '22vh',
+                marginRight: '2vw',
+                float: 'right',
+                fontSize: '1.5vw',
+              }}
+              onClick={addWeightToHistory}
+            >
+              Finish Day
+            </button>
+          </span>
+          <span
+            style={backgroundStyle}
           >
-            Morning:
-            <input
-              type="number"
-              style={inputStyle}
-              value={morningWeight}
-              onChange={(event) => setMorningWeight(event.target.value)}
-            />
-            lb
-          </div>
-          <div
-            style={{
-              paddingLeft: '5vw',
-              paddingTop: '8vh',
-              fontSize: '1.5vw',
-            }}
-          >
-            Evening:
-            <input
-              type="number"
-              style={inputStyle}
-              value={eveningWeight}
-              onChange={(event) => setEveningWeight(event.target.value)}
-            />
-            lb
-          </div>
-          <button
-            style={{
-              ...buttonStyle,
-              marginTop: '22vh',
-              marginRight: '2vw',
-              float: 'right',
-              fontSize: '1.5vw',
-            }}
-            onClick={addWeightToHistory}
-          >
-            Finish Day
-          </button>
-        </span>
-        <span
-          style={backgroundStyle}
-        >
-          <p
-            style={{
-              paddingLeft: '2vw',
-              fontWeight: 'bold',
-              fontSize: '2vw',
-            }}
-          >
-            Past Weight
-          </p>
-          <p
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              textAlign: 'center',
-              flexDirection: 'column',
-            }}
-          >
-            {weightHistory.map((entry, index) => (
-              <div key={index}>
-                <p>Day {index + 1}</p>
-                <p>Morning: {entry.morningWeight} lb</p>
-                <p>Evening: {entry.eveningWeight} lb</p>
-              </div>
-            ))}
-          </p>
-        </span>
+            <p
+              style={{
+                paddingLeft: '2vw',
+                fontWeight: 'bold',
+                fontSize: '2vw',
+              }}
+            >
+              Past Weight
+            </p>
+            <p
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+                flexDirection: 'column',
+              }}
+            >
+              {weightHistory.map((entry, index) => (
+                <div key={index}>
+                  <p>Day {index + 1}</p>
+                  <p>Morning: {entry.morningWeight} lb</p>
+                  <p>Evening: {entry.eveningWeight} lb</p>
+                </div>
+              ))}
+            </p>
+          </span>
+        </div>
       </div>
     </div>
   );
