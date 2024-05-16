@@ -41,11 +41,50 @@ function LoginPage() {
   return (
     <div>
       <Bar />
-      <div style={{ height: '80vh', width: '99vw', background: '#FFFCF7', display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
-        <div style={{ width: '100%', height: '80%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ backgroundColor: '#FFF8EB', height: '100%', width: '30%' }}>
-            <div style={{ fontSize: '4vw', textAlign: 'center', height: '20%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ textAlign: 'center', fontFamily: 'Anonymous Pro' }}>Login</div>
+      <div 
+        style={{ 
+          height: '80vh', 
+          width: '99vw', 
+          background: '#FFFCF7', 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+        }}
+      >
+        <div 
+          style={{ 
+            width: '100%', 
+            height: '80%', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            justifyContent: 'center' 
+          }}
+        >
+          <div 
+            style={{ 
+              backgroundColor: '#FFF8EB', 
+              height: '100%', 
+              width: '30%' 
+            }}
+          >
+            <div 
+              style={{ 
+                fontSize: '4vw', 
+                textAlign: 'center', 
+                height: '20%', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                justifyContent: 'center' 
+              }}
+            >
+              <div 
+                style={{ 
+                  textAlign: 'center', 
+                  fontFamily: 'Anonymous Pro' 
+                }}
+              >Login</div>
             </div>
 
             <div style={{ height: '40%', alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
