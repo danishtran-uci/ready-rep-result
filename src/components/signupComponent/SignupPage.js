@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import Bar from '../BarComponent/Bar';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const buttonStyle = {
   height: '4vh',
   width: '10vw',
   borderRadius: '40px',
-  margin: '3vh',
+  marginTop: '7vh',
   fontFamily: 'Anonymous Pro',
-  fontSize: '1vw',
+  fontSize: '1.5vw',
   background: '#ADADAD',
   border: 'none',
 }
@@ -18,15 +20,18 @@ const textStyle = {
 }
 
 const inputStyle = {
-  height: '100%',
+  height: '30%',
   width: '60%',
   marginLeft: '20%',
   marginRight: '20%',
-  fontSize: '2vh',
+  marginBottom: '2vh',
+  fontSize: '3vh',
   fontFamily: 'Anonymous Pro',
 }
 
 function SignUpPage() {
+  const navigate = useNavigate();
+
   const [signupData, setSignupData] = useState({
     username: '',
     email: '',
@@ -40,8 +45,26 @@ function SignUpPage() {
     }));
   }
 
-  function handleUpdateProfile() {
-    console.log(signupData)
+  async function addProfile(e) {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:3000/SignUp",{
+        username: signupData.username, 
+        email: signupData.email,
+        password: signupData.password
+      }).then(res => {
+        if (res.data === "exist") {
+          alert("User already exists")
+        } else if(res.data === "notexist") {
+          navigate('/', {state:{username: signupData.username}})
+        }
+      }).catch(e => {
+        alert("Wrong Details");
+        console.log(e);
+      })
+    } catch (e){
+      console.log(e);
+    }
   }
 
   return (
@@ -78,54 +101,71 @@ function SignUpPage() {
               fontFamily: 'Anonymous Pro',
             }}
           >
-            <p
+            <div
               style={{
+                width: '100%',
                 fontWeight: 'bold',
                 fontSize: '3vw',
-                marginTop: '-5vh',
+                textAlign: 'center',
+                marginTop: '2vh',
               }}
             >
               Sign Up
-            </p>
-
-            <div style={{
-              height: '60%',
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-around',
-              marginTop: '-5vh',
-            }}
-            >
-              <span>
-                <span style={textStyle}>Username</span>
-                <input
-                  style={inputStyle}
-                  onChange={(event) => updateSignupData('username', event.target.value)}
-                />
-              </span>
-
-              <span>
-                <span style={textStyle}>Email</span>
-                <input
-                  style={inputStyle}
-                  onChange={(event) => updateSignupData('email', event.target.value)}
-                />
-              </span>
-
-              <span>
-                <span style={textStyle}>Password</span>
-                <input
-                  style={inputStyle}
-                  onChange={(event) => updateSignupData('password', event.target.value)}
-                />
-              </span>
             </div>
 
-            <button
-              style={buttonStyle}
-              onClick={handleUpdateProfile}
-            >Confirm</button>
+            <form action="POST"
+              style={{
+                height: '100%',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-around',
+              }}
+            >
+              <div>
+                <span>
+                  <span style={textStyle}>Username</span>
+                  <input
+                    type="username"
+                    style={inputStyle}
+                    onChange={(event) => updateSignupData('username', event.target.value)}
+                  />
+                </span>
+
+                <span>
+                  <span style={textStyle}>Email</span>
+                  <input
+                    type="email"
+                    style={inputStyle}
+                    onChange={(event) => updateSignupData('email', event.target.value)}
+                  />
+                </span>
+
+                <span>
+                  <span style={textStyle}>Password</span>
+                  <input
+                    type="password"
+                    style={inputStyle}
+                    onChange={(event) => updateSignupData('password', event.target.value)}
+                  />
+                </span>
+              </div>
+
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}
+              >
+                <input
+                  style={buttonStyle}
+                  onClick={addProfile}
+                  type="submit"
+                  value="Confirm"
+                />
+              </div>
+            </form>
           </span>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Bar from '../BarComponent/Bar';
 
 const buttonStyle = {
@@ -15,6 +15,7 @@ const buttonStyle = {
 
 function HomePage() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div>
@@ -50,14 +51,30 @@ function HomePage() {
               fontFamily: 'Anonymous Pro',
             }}
           >
-            <p
+            <div
               style={{
                 fontWeight: 'bold',
                 fontSize: '3vw',
+                display: 'flex',
               }}
             >
-              Welcome
-            </p>
+              <div
+                style={{
+                  marginRight: '1vw'
+                }}              
+              >
+                Welcome
+              </div>
+              {location.state ? (
+                <div>
+                  {location.state.username}
+                </div>
+              ) : (
+                <div>
+                  Guest
+                </div>
+              )}
+            </div>
 
             <button
               style={buttonStyle}
