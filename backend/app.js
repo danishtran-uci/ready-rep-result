@@ -82,6 +82,34 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
+app.post("/ChangePassword", authenticateToken, async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+
+  try {
+    const user = await collection.findOne({ username: req.user.username });
+
+    if (user) {
+      const validPassword = await bcrypt.compare(oldPassword, user.password);
+
+      if (validPassword) {
+        const hashedNewPassword = await bcrypt.hash(newPassword, saltRounds);
+        await collection.updateOne(
+          { username: req.user.username },
+          { $set: { password: hashedNewPassword } }
+        );
+        res.json({ status: "password_changed" });
+      } else {
+        res.json({ status: "invalid_old_password" });
+      }
+    } else {
+      res.json({ status: "user_not_found" });
+    }
+  } catch (e) {
+    console.error("Error during password change:", e);
+    res.json("error");
+  }
+});
+
 // Protected route example
 app.get("/protected", authenticateToken, (req, res) => {
   res.json({ message: "This is a protected route", user: req.user });

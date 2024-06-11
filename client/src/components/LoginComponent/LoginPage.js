@@ -150,7 +150,7 @@ function LoginPage() {
                       fontSize: '1vw',
                       color: '#0009DA',
                     }}
-                    onClick={() => navigate('/ChangePassword')}
+                    onClick={() => navigate('/ChangePassword', { state: { username: loginData.username } })}
                   >Forgot Password?</button>
                 </div>
 

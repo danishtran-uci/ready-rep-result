@@ -1,5 +1,8 @@
 import { React, useCallback, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Bar from '../BarComponent/Bar';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const buttonStyle = {
   borderRadius: '40px',
@@ -17,6 +20,11 @@ function PasswordPage() {
   const [newPass, getNewPass] = useState('');
   const [conPass, getConPass] = useState('');
 
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  const { username } = location.state || {};
+
   function confirm() {
     if (newPass === '' || conPass === '') {
       alert("Please Fill Out");
@@ -26,9 +34,27 @@ function PasswordPage() {
     }
     else {
       console.log("New Password: " + newPass);
+
+      try {
+        axios.post("https://ready-rep-result.onrender.com/ChangePassword", {
+          username: username
+        }).then(res => {
+          if (res.data === "exist") {
+            navigate('/', { state: { password: newPass } })
+          } else if (res.data === "notexist") {
+            alert("User have not sign up");
+          }
+        }).catch(e => {
+          alert("Wrong Details");
+          console.log(e);
+        })
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
       alert("Password changed");
     }
-  }
 
   return (
     <div>
