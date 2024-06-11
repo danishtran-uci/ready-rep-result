@@ -1,6 +1,7 @@
 import { React, useState , useEffect} from 'react';
 import Bar from '../BarComponent/Bar';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 function SetRepPage() {
 
@@ -64,6 +65,19 @@ function SetRepPage() {
       setSets([]);
     }
   };
+
+  async function finishWorkout(e) {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:3000/SetRep",{
+        workout: sets
+      }).then(res => {
+        alert("Saved Workout")
+      })
+    } catch (e){
+      console.log(e);
+    }
+  }
 
   return (
     <div>
@@ -141,6 +155,7 @@ function SetRepPage() {
 
           <div>
             <button style={buttonStyle} onClick={() => (setWorkout([]))}>Clear</button>
+            <button style={buttonStyle} onClick={finishWorkout}>Finish Workout</button>
           </div>
 
         </div>

@@ -21,6 +21,10 @@ const newSchema=new mongoose.Schema({
   password:{
     type:String,
     required:true
+  },
+  workout:{
+    type:Array,
+    required:false
   }
 })
 
