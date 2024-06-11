@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Bar from '../BarComponent/Bar';
 import { Box, Button, TextField, Typography, Stack } from '@mui/material';
 import { exerciseOptions, fetchData } from './fetchData';
-import { Link } from 'react-router-dom';
 
 // const buttonStyle = {
 //   borderRadius: '40px',
