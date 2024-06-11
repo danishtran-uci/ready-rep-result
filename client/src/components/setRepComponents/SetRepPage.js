@@ -69,7 +69,7 @@ function SetRepPage() {
   async function finishWorkout(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/SetRep", {
+      await axios.post("https://ready-rep-result.onrender.com/SetRep", {
         workout: sets
       }).then(res => {
         alert("Saved Workout")
