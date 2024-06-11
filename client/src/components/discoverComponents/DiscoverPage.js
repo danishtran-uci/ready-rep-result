@@ -1,8 +1,9 @@
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Bar from '../BarComponent/Bar';
-import { Box, Button, TextField, Typography} from '@mui/material';
-import {exerciseOptions, fetchData} from '../discoverComponents/fetchData';
+import { Box, Button, TextField, Typography, Stack } from '@mui/material';
+import { exerciseOptions, fetchData } from './fetchData';
+import { Link } from 'react-router-dom';
 
 // const buttonStyle = {
 //   borderRadius: '40px',
@@ -50,11 +51,13 @@ function DiscoverPage() {
   const [search, setSearch] = useState('');
   const [exercises, setEx] = useState([]);
 
+  const navigate = useNavigate();
+
   const handleSearch = async () => {
     if (search) {
       const exerciseData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/name/${search}`, exerciseOptions);
       console.log(exerciseData);
-    
+
       setEx(exerciseData);
       setSearch('');
     }
@@ -81,10 +84,10 @@ function DiscoverPage() {
             alignItems: 'center',
           }}
         >
-          <span
+          <div
             style={{
               ...backgroundStyle,
-              width: '80%'
+              width: '80vw'
             }}
           >
             <p
@@ -113,23 +116,37 @@ function DiscoverPage() {
                 </Button>
               </Box>
             </div>
-            
-            <div style={{display: 'flex',
-                justifyContent: 'center', flexWrap:"wrap"}}>
+
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center', flexWrap: "wrap"
+            }}>
               {exercises.map((entry, index) => (
-                <div>
-                  <img src={entry.gifUrl}></img>
-                  <Typography>
-                    {entry.name}
-                  </Typography>
+                <div style={{ margin: '10px', border: '1px solid black', borderRadius: '12px', padding: '5px' }}>
+                  <img src={entry.gifUrl} loading='lazy'></img>
+                  <Stack direction="row">
+                    <Button sx={{ textTransform: 'captitalize', borderRadius: '20px', background: '#D7FFF1', color: 'black', ml: '15px' }}>Area: {entry.bodyPart}</Button>
+                    <Button sx={{ textTransform: 'captitalize', borderRadius: '20px', background: '#FFE8D4', color: 'black', ml: '15px' }}>Targets: {entry.bodyPart}</Button>
+                  </Stack>
+
+                  <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: "wrap", margin: '10px' }}>
+                    <Typography textTransform="capitalize" fontWeight='bold' textAlign='center'>
+                      {entry.name}
+                    </Typography>
+
+                    <Button sx={{ borderRadius: '50%', border: '1px solid black' }} onClick={() => {
+                      navigate('/SetRep', { state: { exerciseName: entry.name } });
+                    }}>+</Button>
+                  </div>
+
                 </div>
               ))}
             </div>
-
-          </span>
+          </div>
         </div>
       </div>
     </div>
+
   );
 }
 

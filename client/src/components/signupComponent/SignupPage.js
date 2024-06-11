@@ -48,21 +48,21 @@ function SignUpPage() {
   async function addProfile(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/SignUp",{
-        username: signupData.username, 
+      await axios.post("https://ready-rep-result.onrender.com/SignUp", {
+        username: signupData.username,
         email: signupData.email,
         password: signupData.password
       }).then(res => {
         if (res.data === "exist") {
           alert("User already exists")
-        } else if(res.data === "notexist") {
-          navigate('/', {state:{username: signupData.username}})
+        } else if (res.data === "notexist") {
+          navigate('/', { state: { username: signupData.username } })
         }
       }).catch(e => {
         alert("Wrong Details");
         console.log(e);
       })
-    } catch (e){
+    } catch (e) {
       console.log(e);
     }
   }
