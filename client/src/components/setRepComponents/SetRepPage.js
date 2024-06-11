@@ -1,4 +1,4 @@
-import { React, useState , useEffect} from 'react';
+import { React, useState, useEffect } from 'react';
 import Bar from '../BarComponent/Bar';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
@@ -6,7 +6,7 @@ import axios from 'axios';
 function SetRepPage() {
 
   const location = useLocation();
-  const {exerciseName} = location.state || {};
+  const { exerciseName } = location.state || {};
 
   const buttonStyle = {
     margin: '1vw',
@@ -69,12 +69,12 @@ function SetRepPage() {
   async function finishWorkout(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/SetRep",{
+      await axios.post("http://localhost:3000/SetRep", {
         workout: sets
       }).then(res => {
         alert("Saved Workout")
       })
-    } catch (e){
+    } catch (e) {
       console.log(e);
     }
   }
@@ -86,12 +86,12 @@ function SetRepPage() {
         <div style={{ width: "50%", height: '70%', backgroundColor: '#FFF8EB', border: "10px solid white", display: 'flex', flexDirection: 'column' }}>
           <div style={{ height: '10%', fontSize: '3vw', fontFamily: 'Anonymous Pro', fontWeight: 'bold', padding: '1vw' }}>
             {exerciseName ? (
-            <div style={{textTransform: 'capitalize'}}>
-              {exerciseName}
-            </div>
-          ) : (
-            <p>No exercise selected</p>
-          )}
+              <div style={{ textTransform: 'capitalize' }}>
+                {exerciseName}
+              </div>
+            ) : (
+              <p>No exercise selected</p>
+            )}
           </div>
 
           <div style={{ width: '80%', height: '60%', fontSize: '2vw', justifyContent: 'center', fontFamily: 'Anonymous Pro', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
@@ -130,7 +130,7 @@ function SetRepPage() {
             </div>
           </div>
 
-          <div style={{textTransform: 'capitalize', padding: '1vw', width: '100%', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center' }}>
+          <div style={{ textTransform: 'capitalize', padding: '1vw', width: '100%', height: '80%', fontSize: '3vw', fontFamily: 'Anonymous Pro', alignItems: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', textAlign: 'center' }}>
             {exerciseName}
             <p
               style={{

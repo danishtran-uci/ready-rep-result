@@ -11,11 +11,11 @@ app.get("/Login", cors(), (req, res) => {
 
 })
 
-app.post("/Login", async(req, res) => {
-  const {username, password} = req.body
+app.post("/Login", async (req, res) => {
+  const { username, password } = req.body
 
   try {
-    const check = await collection.findOne({username: username})
+    const check = await collection.findOne({ username: username })
 
     if (check) {
       res.json("exist")
@@ -32,17 +32,17 @@ app.get("/SignUp", cors(), (req, res) => {
 
 })
 
-app.post("/SignUp", async(req, res) => {
-  const {username, email, password} = req.body
+app.post("/SignUp", async (req, res) => {
+  const { username, email, password } = req.body
 
-  const data={
+  const data = {
     username: username,
     email: email,
     password: password
   }
 
   try {
-    const check = await collection.findOne({username: username})
+    const check = await collection.findOne({ username: username })
 
     if (check) {
       res.json("exist")
